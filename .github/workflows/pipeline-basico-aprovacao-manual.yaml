@@ -1,0 +1,20 @@
+name: pipeline-basico
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executa comando
+        run: echo "Configuração inicial do pipeline"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: pucminas
+    steps:
+      - name: Etapa de deploy
+        run: echo "Executando deploy no AWS S3..."
