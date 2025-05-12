@@ -1,0 +1,22 @@
+name: steps examples
+
+on:
+  push:
+
+jobs:
+  hello_world_job:
+    name: Example of custom action
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Actions
+        uses: actions/checkout@v4
+
+      - id: step-caller
+        uses: ./.github/actions/hello
+        with:
+          the-caller: 'Myself'
+
+      - name: Show random number
+        run: echo "random-number ${{ steps.step-caller.outputs.random-number }}"
+        shell: bash
