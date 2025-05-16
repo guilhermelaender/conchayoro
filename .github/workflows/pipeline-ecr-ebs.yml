@@ -61,10 +61,8 @@ jobs:
          python-version: '3.10'
      - name: 'Install pip and awsebcli' #workaround: awsebcli não funciona com versões do pyyaml > 5.3
        run: |
-           python -m venv venv
-           source venv/bin/activate
-           pip install --upgrade pip setuptools "pyyaml<5.4" awsebcli
-           eb deploy --verbose
+           python -m pip install --upgrade pip
+           pip install awsebcli
      - run: |           
           eb deploy --verbose
 
