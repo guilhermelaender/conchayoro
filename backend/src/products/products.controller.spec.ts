@@ -37,4 +37,14 @@ describe('ProductsController', () => {
     productsController = moduleRef.get<ProductsController>(ProductsController);
     product = moduleRef.get<Product>(getModelToken(Product));
   });
+
+  it('should create a product', async () => {
+    const mockedResponseData = product;
+    jest
+      .spyOn(productsService, 'create')
+      .mockImplementation(() => Promise.resolve(mockedResponseData));
+    expect(await productsController.create(createProductDto)).toBe(
+      mockedResponseData,
+    );
+  });
 });
