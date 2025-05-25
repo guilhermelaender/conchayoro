@@ -39,7 +39,10 @@ describe('ProductsModule', () => {
     await app.init();
   });
 
-  afterAll(async () => {
-    await app.close();
+  it('GET /products', async () => {
+    return request(await app.getHttpServer())
+      .get('/products')
+      .expect(200)
+      .expect('[]');
   });
 });
