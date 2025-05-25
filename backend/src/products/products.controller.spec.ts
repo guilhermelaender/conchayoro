@@ -58,4 +58,13 @@ describe('ProductsController', () => {
       mockedResponseData,
     );
   });
+
+  it('should delete a product', async () => {
+    const mockedResponseData = null;
+    const id = '1';
+    jest
+      .spyOn(productsService, 'remove')
+      .mockImplementation(() => Promise.resolve(mockedResponseData));
+    expect(await productsController.remove(id)).toBe(mockedResponseData);
+  });
 });
