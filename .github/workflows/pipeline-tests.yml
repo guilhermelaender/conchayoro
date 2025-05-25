@@ -4,7 +4,7 @@ on:
   push
 
 jobs:
-  test-products-service:
+  test-products-controller:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 18
       - run: npm --prefix backend install
-      - run: npm --prefix backend test -- backend/src/products/products.service.spec.ts
+      - run: npm --prefix backend test -- backend/src/products/products.controller.spec.ts
 
   test-products-module:
     runs-on: ubuntu-latest
