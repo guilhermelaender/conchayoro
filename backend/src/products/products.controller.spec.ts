@@ -43,6 +43,19 @@ describe('ProductsController', () => {
     jest
       .spyOn(productsService, 'create')
       .mockImplementation(() => Promise.resolve(mockedResponseData));
-    expect(await productsController.create(createProductDto)).toBe(null);
+    expect(await productsController.create(createProductDto)).toBe(
+      mockedResponseData,
+    );
+  });
+
+  it('should update a product', async () => {
+    const mockedResponseData = product;
+    const id = '1';
+    jest
+      .spyOn(productsService, 'update')
+      .mockImplementation(() => Promise.resolve(mockedResponseData));
+    expect(await productsController.update(id, updateProductDto)).toBe(
+      mockedResponseData,
+    );
   });
 });
