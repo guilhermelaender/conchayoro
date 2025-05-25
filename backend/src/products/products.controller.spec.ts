@@ -67,4 +67,13 @@ describe('ProductsController', () => {
       .mockImplementation(() => Promise.resolve(mockedResponseData));
     expect(await productsController.remove(id)).toBe(mockedResponseData);
   });
+
+  it('should return an array of products', async () => {
+    const mockedResponseData = [];
+    jest
+      .spyOn(productsService, 'findAll')
+      .mockImplementation(() => Promise.resolve(mockedResponseData));
+    expect(await productsController.findAll()).toBe(mockedResponseData);
+  });
+  
 });
