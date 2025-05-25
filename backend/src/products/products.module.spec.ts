@@ -59,4 +59,26 @@ describe('ProductsModule', () => {
         res.body.rating = createProductDto.rating;
       });
   });
+
+  it('PUT /products', async () => {
+    const response = request(await app.getHttpServer())
+      .post('/products')
+      .expect('Content-Type', 'application/json; charset=utf-8')
+      .send(createProductDto)
+      .expect(201);
+
+    const id = (await response).body.id;
+
+    return request(await app.getHttpServer())
+      .put(`/products/${id}`)
+      .expect('Content-Type', 'application/json; charset=utf-8')
+      .send(updateProductDto)
+      .expect(200)
+      .expect((res) => {
+        res.body.name = updateProductDto.name;
+        res.body.price = updateProductDto.price;
+        res.body.category = updateProductDto.category;
+        res.body.rating = updateProductDto.rating;
+      });
+  });
 });
