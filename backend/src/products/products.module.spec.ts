@@ -81,4 +81,21 @@ describe('ProductsModule', () => {
         res.body.rating = updateProductDto.rating;
       });
   });
+
+  it('DELETE /products', async () => {
+    const response = request(await app.getHttpServer())
+      .post('/products')
+      .expect('Content-Type', 'application/json; charset=utf-8')
+      .send(createProductDto)
+      .expect(201);
+
+    const id = (await response).body.id;
+
+    return request(await app.getHttpServer())
+      .delete(`/products/${id}`)
+      .expect(200)
+      .expect((res) => {
+        res.body = null;
+      });
+  });
 });
