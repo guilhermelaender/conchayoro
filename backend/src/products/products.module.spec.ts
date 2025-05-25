@@ -45,4 +45,18 @@ describe('ProductsModule', () => {
       .expect(200)
       .expect('[]');
   });
+
+  it('POST /products', async () => {
+    return request(await app.getHttpServer())
+      .post('/products')
+      .expect('Content-Type', 'application/json; charset=utf-8')
+      .send(createProductDto)
+      .expect(201)
+      .expect((res) => {
+        res.body.name = createProductDto.name;
+        res.body.price = createProductDto.price;
+        res.body.category = createProductDto.category;
+        res.body.rating = createProductDto.rating;
+      });
+  });
 });
