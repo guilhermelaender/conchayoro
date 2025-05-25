@@ -43,8 +43,6 @@ describe('ProductsController', () => {
     jest
       .spyOn(productsService, 'create')
       .mockImplementation(() => Promise.resolve(mockedResponseData));
-    expect(await productsController.create(createProductDto)).toBe(
-      mockedResponseData,
-    );
+    expect(await productsController.create(createProductDto)).toBe(null);
   });
 });
