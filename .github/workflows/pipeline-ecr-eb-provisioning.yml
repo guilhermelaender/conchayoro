@@ -25,7 +25,6 @@ jobs:
       TF_VAR_WORKING_DIR: ".environment"      
       TF_VAR_PLAN_FILE: "planfile"
       TF_VAR_STATE_FILE: "state/terraform.tfstate"
-      S3_BUCKET: ${{ vars.S3_BUCKET }}
     steps:    
       - uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3
