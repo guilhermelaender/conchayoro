@@ -15,7 +15,7 @@ resource "aws_elastic_beanstalk_application" "cyo_eba" {
 resource "aws_elastic_beanstalk_environment" "cyo_ebef" {
   name                = "${var.MODULE_NAME}"
   application         = aws_elastic_beanstalk_application.cyo_eba.name
-  solution_stack_name = "${var.SOLUTION_STACK_NAME}"
+  solution_stack_name = "64bit Amazon Linux 2023 v4.5.1 running Docker"
 
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
@@ -50,7 +50,7 @@ resource "aws_elastic_beanstalk_environment" "cyo_ebef" {
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "EC2KeyName"
-    value     = "vockey"
+    value     = "gopay-bastion"
   }
 
   setting {
