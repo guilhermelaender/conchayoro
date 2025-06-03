@@ -6,9 +6,9 @@ terraform {
         }
     }
     backend "s3" {
-        bucket  = "conchayoro-gol"
-        key     = "conchayoro/terraform.tfstate"
-        region  = "us-east-1"
+        bucket  = ""
+        key     = ""
+        region  = ""
         encrypt = true
     }
     required_version = ">= 1.12.1"
