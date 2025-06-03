@@ -8,6 +8,7 @@ DeploymentPolicy = "AllAtOnce"
 BatchSizeType = "Fixed"
 BatchSize = 50
 Timeout = 3600
+
 ## LoadedBalanced service settings
 ##---------------------------
 #EnvironmentType = "LoadBalanced"

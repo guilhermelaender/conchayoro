@@ -1,47 +1,47 @@
 variable "AWS_REGION" {
-  type = string
+    type = string
 }
 
 variable "PROJECT_NAME" {
-  type = string
+    type = string
 }
 
 variable "MODULE_NAME" {
-  type = string
+    type = string
 }
 
 variable "SOLUTION_STACK_NAME" {
-  type = string
+    type = string
 }
 
 variable "EnvironmentType" {
-  type = string
+    type = string
 }
 
 variable "LoadBalancerType" {
-  type = string
+    type = string
 }
 
 variable "MinSize" {
-  type = number
+    type = number
 }
 
 variable "MaxSize" {
-  type = number
+    type = number
 }
 
 variable "DeploymentPolicy" {
-  type = string
+    type = string
 }
 
 variable "BatchSizeType" {
-  type = string
+    type = string
 }
 
 variable "BatchSize" {
-  type = number
+    type = number
 }
 
 variable "Timeout" {
-  type = number
+    type = number
 }
